@@ -7,39 +7,22 @@ public class Problem60 extends PrimeNumbers {
 	static ArrayList<Integer> FourthPrimes =  new ArrayList<Integer>();
 	static ArrayList<Integer> FifthPrimes =  new ArrayList<Integer>();
 	
-	Problem60(int NumberOfPrimes) { //Constructor - 1000 Primes
-		super(1000);
+	Problem60(int NumberOfPrimes) { //Constructor - 10000 Primes
+		super(10000);
 		
 	}
 
 	public static void main(String[] args) { //אחרי שמשיגים את כל הסקונד פריימז, צריך לבדוק מי מהזוגות יש לו עוד איבר שמתאים לכלל. אחר כך רביעי שמתאים לכלל
-		Primes =  PrimeNumbers.GetPrimes();
-		int count=0, count2=0;		
-		int a=0;
-		int c;
-		int b=3;
-		while (count2<160)
-		{
-			while (count<160)			
-				{
-					c=GetPrime(a++);
-				
-					AddTwoPrimes(a,b);
-					
-					count++;
-				}
-			b=0;
-			b=GetPrime(b++);
-			count2++;
-		}
+		PrimeNumbers a1 = new PrimeNumbers(10000);
+		Primes = a1.GetPrimes();
 		
-		System.out.println(SecondPrimes);
+		Priming();
+		//System.out.println(SecondPrimes);
 		//System.out.println(count);
-		System.out.println(Primes);
+		//System.out.println(Primes);
 	}				
 									
-		private static boolean AddTwoPrimes (int num1, int num2)
-	{
+	private static boolean AddTwoPrimes (int num1, int num2) {
 		String First = Integer.toString(num1)+""+Integer.toString(num2);
 		String Second = Integer.toString(num2)+""+Integer.toString(num1);
 		//System.out.println(First);
@@ -53,6 +36,22 @@ public class Problem60 extends PrimeNumbers {
 		}
 		else
 			return false;
+	}
+	private static void Priming() {
+		int count=0, count2=0, a=0, c, b=3;
+		while (count2<167) {
+			while (count<167) {
+					c=GetPrime(a++);		
+					AddTwoPrimes(a,b);					
+					count++;
+				}
+			b=0;
+			b=GetPrime(b++);
+			count2++;
+		}		
+		System.out.println(Primes);
+		System.out.println(SecondPrimes);
+		
 	}
 	private static boolean IsPrime (int num) // Receive a number. Checks if it a *Prime*
 	{
