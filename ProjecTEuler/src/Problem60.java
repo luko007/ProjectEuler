@@ -8,7 +8,7 @@ public class Problem60 extends PrimeNumbers {
 	static ArrayList<Integer> FifthPrimes =  new ArrayList<Integer>();
 	
 	Problem60(int NumberOfPrimes) { //Constructor - 10000 Primes
-		super(10000);
+		super(10000); // Not Working!
 		
 	}
 
